@@ -14,9 +14,16 @@
 <script>
     async function pedirPermiso() {
     const videoElement = document.getElementById('video');
+
+    
+
+
     try {
         //pide permisos
         const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        
+
+
         //imprimir video
         videoElement.srcObject = stream;
     } catch(error) {
