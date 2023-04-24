@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Pedir permiso para usar la cámara</title>
+  </head>
+  <body>
+    <video id="video" autoplay></video>
+    <button onclick="pedirPermiso()">Pedir permiso para usar la cámara</button>
+    
+    <script>
+      async function pedirPermiso() {
+        try {
+          const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+          const videoElement = document.getElementById('video');
+          videoElement.srcObject = stream;
+        } catch(error) {
+          console.error('Error al obtener acceso a la cámara', error);
+        }
+      }
+    </script>
+  </body>
+</html>
